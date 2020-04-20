@@ -1,4 +1,4 @@
-package br.ufsm.csi.aula03;
+package br.ufsm.csi.aula03.criptografiaSimetrica;
 
 import javax.crypto.*;
 import java.io.IOException;

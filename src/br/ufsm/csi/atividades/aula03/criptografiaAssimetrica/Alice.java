@@ -1,4 +1,4 @@
-package br.ufsm.csi.atividades.criptografiaAssimetrica;
+package br.ufsm.csi.atividades.aula03.criptografiaAssimetrica;
 
 import javax.swing.*;
 import java.io.*;
@@ -49,11 +49,11 @@ public class Alice {
         // Aguardando conexão
         System.out.println("[ALICE] Aguardando conexão");
         ServerSocket serverSocket = new ServerSocket(5555);
-        Socket socket80 = serverSocket.accept();
+        Socket socket = serverSocket.accept();
         System.out.println("[ALICE] Conexão recebida");
 
         // Recebendo a chave pública
-        ObjectInputStream oin = new ObjectInputStream(socket80.getInputStream());
+        ObjectInputStream oin = new ObjectInputStream(socket.getInputStream());
         TransferObject object = (TransferObject) oin.readObject();
         publicKey = object.getPublicKey();
 
@@ -65,10 +65,10 @@ public class Alice {
      * Envia arquivo criptografado para Bob
      */
     public static void sendObject(TransferObject object) throws IOException {
-        Socket socket90 = new Socket("localhost", 8090);
-        ObjectOutputStream oout = new ObjectOutputStream(socket90.getOutputStream());
+        Socket socket = new Socket("localhost", 8090);
+        ObjectOutputStream oout = new ObjectOutputStream(socket.getOutputStream());
         oout.writeObject(object);
-        socket90.close();
+        socket.close();
         System.out.println("[ALICE] Arquivo criptografado enviado");
     }
 

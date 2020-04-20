@@ -1,4 +1,4 @@
-package br.ufsm.csi.atividades.criptografiaAssimetrica;
+package br.ufsm.csi.atividades.aula03.criptografiaAssimetrica;
 
 import javax.crypto.Cipher;
 import java.security.*;
@@ -8,28 +8,21 @@ public class Utils {
     /**
      * Retorna um par de chave privada e pública usando 2048 bytes
      */
-    public static Object[] generateKey() {
-
-        Object[] keys = new Object[2];
+    public static KeyPair generateKey() {
+        KeyPair key = null;
 
         try {
 
             final KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
             keyGen.initialize(2048);
-            final KeyPair key = keyGen.generateKeyPair();
-
-            PrivateKey privateKey = key.getPrivate();
-            PublicKey publicKey = key.getPublic();
-
-            keys[0] = privateKey;
-            keys[1] = publicKey;
+            key = keyGen.generateKeyPair();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         System.out.println("Chave pública e privada gerada");
-        return keys;
+        return key;
     }
 
     /**

@@ -1,9 +1,10 @@
-package br.ufsm.csi.atividades.criptografiaAssimetrica;
+package br.ufsm.csi.atividades.aula03.criptografiaAssimetrica;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import java.security.KeyPair;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 
@@ -14,9 +15,9 @@ public class Bob {
 
     public static void main(String[] args) {
 
-        Object[] keys = Utils.generateKey();
-        privateKey = (PrivateKey) keys[0];
-        publicKey = (PublicKey) keys[1];
+        KeyPair key = Utils.generateKey();
+        privateKey = key.getPrivate();
+        publicKey = key.getPublic();
 
         try {
 
@@ -45,9 +46,9 @@ public class Bob {
      * Bob recebe arquivo criptografado de Alice
      */
     public static void receivedObject() throws IOException, ClassNotFoundException {
-        ServerSocket serverSocket90 = new ServerSocket(8090);
-        Socket socket90 = serverSocket90.accept();
-        ObjectInputStream oin = new ObjectInputStream(socket90.getInputStream());
+        ServerSocket serverSocket = new ServerSocket(8090);
+        Socket socket = serverSocket.accept();
+        ObjectInputStream oin = new ObjectInputStream(socket.getInputStream());
         TransferObject objectReceived = (TransferObject) oin.readObject();
         System.out.println("[BOB] Arquivo criptografado recebido de Alice");
         printObjectReceived(objectReceived);

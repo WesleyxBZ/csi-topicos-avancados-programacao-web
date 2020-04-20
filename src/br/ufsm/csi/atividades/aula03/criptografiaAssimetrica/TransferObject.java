@@ -1,4 +1,4 @@
-package br.ufsm.csi.atividades.criptografiaAssimetrica;
+package br.ufsm.csi.atividades.aula03.criptografiaAssimetrica;
 
 import java.io.Serializable;
 import java.security.PublicKey;
