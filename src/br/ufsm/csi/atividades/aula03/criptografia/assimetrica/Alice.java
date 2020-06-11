@@ -1,4 +1,4 @@
-package br.ufsm.csi.atividades.aula03.criptografiaAssimetrica;
+package br.ufsm.csi.atividades.aula03.criptografia.assimetrica;
 
 import javax.swing.*;
 import java.io.*;

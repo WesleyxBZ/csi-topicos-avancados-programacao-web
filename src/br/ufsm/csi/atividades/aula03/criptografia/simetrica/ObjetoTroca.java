@@ -1,4 +1,4 @@
-package br.ufsm.csi.aula03.criptografiaSimetrica;
+package br.ufsm.csi.atividades.aula03.criptografia.simetrica;
 
 import javax.crypto.SecretKey;
 import java.io.Serializable;
